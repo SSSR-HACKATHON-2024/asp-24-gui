@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>programIcons/icons8-system-task-96.ico</file>
+        <file>programIcons/icons8-vulnerability-96.ico</file>
+        <file>programIcons/download-file.ico</file>
+    </qresource>
+</RCC>
