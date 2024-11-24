@@ -1,4 +1,4 @@
-#include "clineedit.h"
+#include "src/h/clineedit.h"
 
 CLineEdit::CLineEdit(QWidget *parent){
     set_style();

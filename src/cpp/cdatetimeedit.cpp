@@ -1,4 +1,4 @@
-#include "cdatetimeedit.h"
+#include "src/h/cdatetimeedit.h"
 
 CDateTimeEdit::CDateTimeEdit(QWidget *parent){
     set_style();

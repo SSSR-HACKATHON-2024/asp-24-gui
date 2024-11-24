@@ -1,4 +1,4 @@
-#include "cpushbutton.h"
+#include "src/h/cpushbutton.h"
 
 CPushButton::CPushButton(QWidget *parent){
     set_style();

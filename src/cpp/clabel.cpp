@@ -1,4 +1,4 @@
-#include "clabel.h"
+#include "src/h/clabel.h"
 
 CLabel::CLabel(QWidget *parent){
     set_style();

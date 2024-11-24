@@ -1,4 +1,4 @@
-#include "ctablewidget.h"
+#include "src/h/ctablewidget.h"
 
 CTableWidget::CTableWidget(QWidget *parent) : QTableWidget(parent){
     set_style();

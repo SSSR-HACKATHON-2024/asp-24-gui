@@ -1,4 +1,4 @@
-#include "cgroupbox.h"
+#include "src/h/cgroupbox.h"
 
 CGroupBox::CGroupBox(QWidget *parent){
     set_style();
@@ -24,7 +24,7 @@ void CGroupBox::set_style(){
                   "subcontrol-origin: margin;"
                   "subcontrol-position: top center;"
                   "padding: 5px;"
-                  "background-color: #4169e1;"
+                  "background-color: #EE82EE;"
                   "color: white;"
                   "font-size: 16px;"
                   "font-weight: bold;"

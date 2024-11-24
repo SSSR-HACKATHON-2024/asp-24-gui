@@ -1,18 +1,18 @@
-#include "tasksview.h"
+#include "src/h/scanview.h"
 
-CtasksView::CtasksView(QWidget *parent) : CFrame(parent){
+CscanView::CscanView(QWidget *parent) : CFrame(parent){
     mainBox = new QVBoxLayout();
-    tableActualBox = new QVBoxLayout();
-    tableCreatedBox = new QVBoxLayout();
     wayBox = new QVBoxLayout();
     fullBox = new QVBoxLayout();
+    tableHistoryBox = new QVBoxLayout();
+    tableActualBox = new QVBoxLayout();
     ipHBox = new QHBoxLayout();
-    tasksBox = new QHBoxLayout();
     radioHBox = new QHBoxLayout();
-    gbTableActual = new CGroupBox("Статус задач");
-    gbTableCreated = new CGroupBox("Список задач");
+    tablesHBox = new QHBoxLayout();
     gbWay = new CGroupBox("Способ сканирования");
     gbFull = new CGroupBox("Содержательность сканирования");
+    gbTableHistory = new CGroupBox("Прошлое сканирование");
+    gbTableActual = new CGroupBox("Актуальное сканирование");
     formIp = new QFormLayout();
     formRadioWay = new QFormLayout();
     formRadioFull = new QFormLayout();
@@ -33,9 +33,9 @@ CtasksView::CtasksView(QWidget *parent) : CFrame(parent){
     radioWaySecretive = new QRadioButton();
     radioFullFull = new QRadioButton();
     radioFullFast = new QRadioButton();
+    tableHistory = new CTableWidget();
+    tableActual = new CTableWidget();
     radioFullFast->setChecked(true);
-    tableActualTasks = new CTableWidget();
-    tableCreatedTasks = new CTableWidget();
    // scan
     formIp->addRow(lbIp,leIp);
     formRadioWay->addRow(lbWayAgressive,radioWayAgressive);
@@ -51,35 +51,32 @@ CtasksView::CtasksView(QWidget *parent) : CFrame(parent){
     ipHBox->setAlignment(Qt::AlignRight);
     ipHBox->addWidget(pbScan);
     ipHBox->addWidget(pbOpenFile);
-   // tasks
-    tableActualTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    tableCreatedTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    tableActualTasks->set_headers({"Задача","Диапазон","Статус"});
-    tableCreatedTasks->set_headers({"Задача","Диапазон","Время"});
-    tableActualBox->addWidget(tableActualTasks);
-    tableCreatedBox->addWidget(tableCreatedTasks);
+   // tables
+    tableHistoryBox->addWidget(tableHistory);
+    tableActualBox->addWidget(tableActual);
+    gbTableHistory->setLayout(tableHistoryBox);
     gbTableActual->setLayout(tableActualBox);
-    gbTableCreated->setLayout(tableCreatedBox);
-    tasksBox->addWidget(gbTableActual);
-    tasksBox->addWidget(gbTableCreated);
+    tablesHBox->addWidget(gbTableHistory);
+    //tablesHBox->addStretch();
+    tablesHBox->addWidget(gbTableActual);
    // main
     mainBox->addLayout(formIp);
     mainBox->addWidget(lbExample);
     mainBox->addLayout(radioHBox);
     mainBox->addLayout(ipHBox);
-    mainBox->addLayout(tasksBox);
+    mainBox->addLayout(tablesHBox);
     setLayout(mainBox);
    // connects
-    connect(pbScan,&QPushButton::clicked,this,&CtasksView::on_pbScan_clicked);
-    connect(pbOpenFile,&QPushButton::clicked,this,&CtasksView::on_pbOpenFile_clicked);
+    connect(pbScan,&QPushButton::clicked,this,&CscanView::on_pbScan_clicked);
+    connect(pbOpenFile,&QPushButton::clicked,this,&CscanView::on_pbOpenFile_clicked);
 }
 
-bool CtasksView::valid_ip(const QString &ip){
+bool CscanView::valid_ip(const QString &ip){
     QHostAddress address(ip);
     return address.protocol() == QAbstractSocket::IPv4Protocol;
 }
 
-void CtasksView::on_pbScan_clicked(){
+void CscanView::on_pbScan_clicked(){
     bool agressive = radioWayAgressive->isChecked();
     bool full = radioFullFull->isChecked();
     QString fullData = leIp->text();
@@ -102,7 +99,7 @@ void CtasksView::on_pbScan_clicked(){
     }
 }
 
-void CtasksView::on_pbOpenFile_clicked(){
+void CscanView::on_pbOpenFile_clicked(){
     QString filePath = QFileDialog::getOpenFileName();
     if (filePath.isEmpty()) return;
     QFile reader(filePath);

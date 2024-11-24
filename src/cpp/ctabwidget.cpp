@@ -1,4 +1,4 @@
-#include "ctabwidget.h"
+#include "src/h/ctabwidget.h"
 
 CTabWidget::CTabWidget(QWidget *parent){
     setParent(parent);
@@ -19,7 +19,7 @@ void CTabWidget::set_style(){
                   "border-radius: 8px;"
                   "padding: 5px;"
                   "margin-right: 2px;"
-                  "min-width: 85px;"
+                  "min-width: 200px;"
                   "text-align: right;"
                   "font-size: 14px;}"
                   "QTabBar::tab:hover{"

@@ -1,4 +1,4 @@
-#include "cframe.h"
+#include "src/h/cframe.h"
 
 CFrame::CFrame(QWidget *parent){
     set_style();

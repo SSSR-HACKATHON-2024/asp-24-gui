@@ -4,7 +4,9 @@
 #include <QObject>
 #include <QtWidgets>
 #include "cwidgets.h"
-#include "tasksview.h"
+#include "src/h/scanview.h"
+#include "src/h/statview.h"
+#include "src/h/db.h"
 
 class CmainView : public CFrame{
     Q_OBJECT
@@ -16,8 +18,9 @@ public:
 private:
    // v,h boxes
     QVBoxLayout *mainBox;
+    QVBoxLayout *statBox;
    // group boxes
-    QGroupBox *gbTest;
+    QGroupBox *gbStat;
    // form layout
     QFormLayout *formIp;
    // labels
@@ -25,7 +28,8 @@ private:
    // buttons, spin boxes
    // other
     QTabWidget *tabs;
-    CtasksView *tasks;
+    CstatView *stat;
+    CscanView *scan;
 };
 
 #endif // MAINVIEW_H
