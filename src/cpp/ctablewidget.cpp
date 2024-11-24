@@ -24,4 +24,7 @@ void CTableWidget::set_style(){
                              "color: black;}");
     QFont font("Segoe UI",14);
     setFont(font);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
+    setSelectionMode(QAbstractItemView::SingleSelection);
+    setEditTriggers(QAbstractItemView::NoEditTriggers);
 }

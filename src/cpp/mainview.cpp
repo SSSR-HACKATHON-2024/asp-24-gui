@@ -1,9 +1,7 @@
 #include "src/h/mainview.h"
 
 CmainView::CmainView(QWidget *parent) : CFrame(parent){
-//    if (!db.open()){
-//        qDebug() << db.lastError().text();
-//    }
+    set_db();
     mainBox = new QVBoxLayout();
     statBox = new QVBoxLayout();
     formIp = new QFormLayout();

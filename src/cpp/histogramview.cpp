@@ -1,7 +1,7 @@
 #include "src/h/histogramview.h"
 
-ChistogramView::ChistogramView(QWidget *parent) : QWidget(parent) {
-    data = {0,0,0,0};
+ChistogramView::ChistogramView(QWidget *parent) : CFrame(parent) {
+    data = {2,2,2,2};
     colors = {
         QColor("#B22222"), QColor("#FF4500"),QColor("#FFD700"),QColor("#7CFC00")
     };
@@ -14,7 +14,7 @@ void ChistogramView::set_data(int criticalCount,int highCount,
     data = {criticalCount,highCount,mediumCount,lowCount};
 }
 
-void ChistogramView::paintEvent(QPaintEvent *){
+void ChistogramView::paintEvent(QPaintEvent *event){
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     QPen pen;
@@ -37,4 +37,5 @@ void ChistogramView::paintEvent(QPaintEvent *){
     painter.setPen(QPen(Qt::black, 2));
     painter.drawLine(0, height - 30, width, height - 30);
     painter.drawLine(0, 0, 0, height - 30);
+    event->accept();
 }

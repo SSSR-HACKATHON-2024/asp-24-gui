@@ -86,7 +86,9 @@ void CscanView::on_pbScan_clicked(){
 
         }
         else{
-
+            QProcess *newProcess = new QProcess();
+            QString programPath = "/opt/asp-24/asp24s.py";
+            newProcess->start(programPath,QStringList() << "-a -q 192.168.70.107");
         }
     }
     else{

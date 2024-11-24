@@ -8,7 +8,7 @@ QSqlDatabase db;
 
 void set_db(){
     db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("localhost");
+    db.setHostName("87.251.74.199");
     db.setPort(5432);
     db.setDatabaseName("hack_db");
     db.setUserName("postgres");

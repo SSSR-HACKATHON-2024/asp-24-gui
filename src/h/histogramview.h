@@ -2,8 +2,9 @@
 #define HISTOGRAMVIEW_H
 
 #include <QtWidgets>
+#include "src/h/cwidgets.h"
 
-class ChistogramView : public QWidget {
+class ChistogramView : public CFrame {
     Q_OBJECT
 
 public:
